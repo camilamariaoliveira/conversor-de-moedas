@@ -20,18 +20,7 @@ public class Main {
             }
         }while (!Currency.validate(inputValue));
 
-        String [] conversionOptions = new String[] {
-                "De Reais a Dólar",
-                "De Reais a Euro",
-                "De Reais a Libras Esterlinas",
-                "De Reais a Peso argentino",
-                "De Reais a Peso Chileno",
-                "De Dólar a Reais",
-                "De Euro a Reais",
-                "De Libras Esterlinas a Reais",
-                "De Peso argentino a  Reais",
-                "De Peso Chileno a Reais"
-        };
+        String [] conversionOptions = ConversionOptions.getAllLabels();
         String choosenConversionOption = (String) JOptionPane.showInputDialog(
                 null,
                 "Para qual moeda você deseja converter o valor informado?",
