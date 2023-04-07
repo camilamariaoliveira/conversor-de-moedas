@@ -3,6 +3,7 @@ import models.Units;
 import services.Converter;
 import javax.swing.*;
 import java.util.Currency;
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,9 +41,9 @@ public class Main {
             Converter c = new Converter();
             Units units = ConversionOptions.getUnits(choosenConversionOption);
             Money oldValue = new Money(Double.valueOf(inputValue), units.getUnitInitial());
-            Currency locale = Currency.getInstance(units.getUnitFinal());
-            String symbol = locale.getSymbol();
-            String display = locale.getDisplayName();
+            Currency currency = Currency.getInstance(units.getUnitFinal());
+            String symbol = currency.getSymbol();
+            String display = currency.getDisplayName(Locale.forLanguageTag("pt-BR"));
             Money newCurrency = c.convert(oldValue, units.getUnitFinal());
             JOptionPane.showMessageDialog(
                     null,
