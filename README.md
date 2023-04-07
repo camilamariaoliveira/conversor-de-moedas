@@ -8,6 +8,7 @@
 Nesta oportunidade foi solicitado para nós Devs a criação de um conversor de moeda utilizando a linguagem Java. As características solicitadas por nosso cliente são as seguintes:
 
 O conversor de moeda deverá:
+
      - Converter de Reais a Dólar
      - Converter de Reais a Euro
      - Converter de Reais a Libras Esterlinas
@@ -25,9 +26,16 @@ Lembrando que deve ser possível também converter de forma inversa ou seja:
 
 - Conversor de moeda 
 
+Como rodar a aplicação ▶️
+
+No terminal, clone o projeto:
+Para clonar um repositório com o Git, selecione o repositório que deseja clonar, copie a URL do repositório, digite na linha de comando:
+
+git clone https://github.com/camilamariaoliveira/conversor-de-moedas
+
 
 <h4 align="center"> 
-    :construction:  Projeto em construção  :construction:
+    :construction:  Novas Funcionaldades em construção  :construction:
 </h4>
 
 # :hammer: Novas Funcionalidades do pretendidas

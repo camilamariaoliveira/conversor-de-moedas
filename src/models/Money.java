@@ -1,10 +1,10 @@
 package models;
 
-public class Currency {
+public class Money {
     private double value;
     private String unit;
 
-    public Currency(double value, String unit) {
+    public Money(double value, String unit) {
         this.value = value;
         this.unit = unit;
     }

@@ -1,5 +1,5 @@
 package services;
-import models.Currency;
+import models.Money;
 import models.Quote;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +29,8 @@ public class Converter {
         return -1;
     }
 
-    public Currency convert (Currency oldCurrency, String unit){
+    public Money convert (Money oldCurrency, String unit){
         double quote = getQuote(oldCurrency.getUnit(), unit);
-        return new Currency((quote*oldCurrency.getValue()), unit);
+        return new Money((quote*oldCurrency.getValue()), unit);
     }
 }

@@ -1,7 +1,8 @@
-import models.Currency;
+import models.Money;
 import models.Units;
 import services.Converter;
 import javax.swing.*;
+import java.util.Currency;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,10 +21,10 @@ public class Main {
             String inputValue;
             do {
                 inputValue = JOptionPane.showInputDialog("Insira o valor:");
-                if (!Currency.validate(inputValue)) {
+                if (!Money.validate(inputValue)) {
                     JOptionPane.showMessageDialog(null, "Insira apenas números divididos por ponto.");
                 }
-            } while (!Currency.validate(inputValue));
+            } while (!Money.validate(inputValue));
 
             String[] conversionOptions = ConversionOptions.getAllLabels();
             String choosenConversionOption = (String) JOptionPane.showInputDialog(
@@ -38,11 +39,21 @@ public class Main {
 
             Converter c = new Converter();
             Units units = ConversionOptions.getUnits(choosenConversionOption);
-            Currency oldValue = new Currency(Double.valueOf(inputValue), units.getUnitInitial());
-            Currency newCurrency = c.convert(oldValue, units.getUnitFinal());
-            JOptionPane.showMessageDialog(null, "O valor equivalente a moeda selecionada é " + newCurrency.getValue());
+            Money oldValue = new Money(Double.valueOf(inputValue), units.getUnitInitial());
+            Currency locale = Currency.getInstance(units.getUnitFinal());
+            String symbol = locale.getSymbol();
+            String display = locale.getDisplayName();
+            Money newCurrency = c.convert(oldValue, units.getUnitFinal());
+            JOptionPane.showMessageDialog(
+                    null,
+                    "O valor equivalente é " + symbol + newCurrency.getValue() + " " + display);
 
-            Integer userDecision = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Selecione uma opção", JOptionPane.YES_NO_CANCEL_OPTION);
+            Integer userDecision = JOptionPane.showConfirmDialog(
+                    null,
+                    "Deseja continuar?",
+                    "Selecione uma opção",
+                    JOptionPane.YES_NO_CANCEL_OPTION
+            );
             if (userDecision == 1) {
                 restartMenu = false;
                 JOptionPane.showMessageDialog(null, "Programa finalizado");
