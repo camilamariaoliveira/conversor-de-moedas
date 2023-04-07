@@ -1,7 +1,5 @@
 package models;
 
-import services.Converter;
-
 public class Currency {
     private double value;
     private String unit;

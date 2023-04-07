@@ -1,9 +1,5 @@
 package models;
 
-import services.Converter;
-
-import java.util.List;
-
 public class Quote {
     private String unitInitial;
     private String unitFinal;

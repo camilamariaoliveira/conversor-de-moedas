@@ -1,5 +1,4 @@
 import models.Units;
-
 import java.util.ArrayList;
 
 public enum ConversionOptions {
